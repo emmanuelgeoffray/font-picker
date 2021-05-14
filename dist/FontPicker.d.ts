@@ -6,7 +6,7 @@ export default class FontPicker {
     private fontManager;
     private fontPickerDiv;
     private ul;
-    constructor(apiKey: string, defaultFamily: string | undefined, { pickerId, families, categories, scripts, variants, filter, limit, sort, }: Partial<Options>, onChange?: (font: Font) => void);
+    constructor(apiKey: string, defaultFamily: string | undefined, { pickerId, families, categories, scripts, variants, filter, limit, sort, }: Partial<Options>, onChange?: (font: Font) => void, onReady?: () => void);
     private generateUI;
     private generateFontList;
     private addFontLi;

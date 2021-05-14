@@ -118,7 +118,7 @@
           throw Error("The `pickerId` parameter may only contain letters and digits");
       }
   }
-  //# sourceMappingURL=ids.js.map
+
 
   function get(url) {
       return new Promise(function (resolve, reject) {
@@ -138,7 +138,7 @@
           request.send();
       });
   }
-  //# sourceMappingURL=request.js.map
+
 
   var LIST_BASE_URL = "https://www.googleapis.com/webfonts/v1/webfonts";
   function getFontList(apiKey) {
@@ -163,7 +163,7 @@
           });
       });
   }
-  //# sourceMappingURL=fontList.js.map
+
 
   var previewFontsStylesheet = document.createElement("style");
   document.head.appendChild(previewFontsStylesheet);
@@ -187,7 +187,7 @@
       var activeFontStylesheet = getActiveFontStylesheet(selectorSuffix);
       activeFontStylesheet.innerHTML = style;
   }
-  //# sourceMappingURL=declarations.js.map
+
 
   var PREVIEW_ATTRIBUTE_NAME = "data-is-preview";
   function getStylesheetId(fontId) {
@@ -227,7 +227,7 @@
           console.error("Could not change stylesheet type: Stylesheet with ID \"" + stylesheetId + "\" not found");
       }
   }
-  //# sourceMappingURL=stylesheets.js.map
+
 
   function getMatches(regex, str) {
       var matches = [];
@@ -240,7 +240,7 @@
       } while (match);
       return matches;
   }
-  //# sourceMappingURL=regex.js.map
+
 
   var FONT_FACE_REGEX = /@font-face {([\s\S]*?)}/gm;
   var FONT_FAMILY_REGEX = /font-family: ['"](.*?)['"]/gm;
@@ -257,7 +257,7 @@
       });
       return fontStyles;
   }
-  //# sourceMappingURL=extractFontStyles.js.map
+
 
   var FONT_BASE_URL = "https://fonts.googleapis.com/css";
   function getStylesheet(fonts, scripts, variants, previewsOnly) {
@@ -282,7 +282,7 @@
           });
       });
   }
-  //# sourceMappingURL=fontStylesheet.js.map
+
 
   function getSimpleStylesheet(font) {
       return "\n        @font-face {\n\n        font-family: '" + font.family + "';\n        font-style: normal;\n        font-weight: 400;\n        src: url(" + font.url + ");";
@@ -364,7 +364,7 @@
           });
       });
   }
-  //# sourceMappingURL=loadFonts.js.map
+
 
   var FONT_FAMILY_DEFAULT = "Open Sans";
   var OPTIONS_DEFAULTS = {
@@ -377,7 +377,7 @@
       limit: 50,
       sort: "alphabet",
   };
-  //# sourceMappingURL=types.js.map
+
 
   var FontManager = (function () {
       function FontManager(apiKey, defaultFamily, _a, onChange) {
@@ -488,13 +488,13 @@
       };
       return FontManager;
   }());
-  //# sourceMappingURL=index.es.js.map
 
   var FontPicker = (function () {
-      function FontPicker(apiKey, defaultFamily, _a, onChange) {
+      function FontPicker(apiKey, defaultFamily, _a, onChange, onReady) {
           if (defaultFamily === void 0) { defaultFamily = FONT_FAMILY_DEFAULT; }
           var _b = _a.pickerId, pickerId = _b === void 0 ? OPTIONS_DEFAULTS.pickerId : _b, _c = _a.families, families = _c === void 0 ? OPTIONS_DEFAULTS.families : _c, _d = _a.categories, categories = _d === void 0 ? OPTIONS_DEFAULTS.categories : _d, _e = _a.scripts, scripts = _e === void 0 ? OPTIONS_DEFAULTS.scripts : _e, _f = _a.variants, variants = _f === void 0 ? OPTIONS_DEFAULTS.variants : _f, _g = _a.filter, filter = _g === void 0 ? OPTIONS_DEFAULTS.filter : _g, _h = _a.limit, limit = _h === void 0 ? OPTIONS_DEFAULTS.limit : _h, _j = _a.sort, sort = _j === void 0 ? OPTIONS_DEFAULTS.sort : _j;
           if (onChange === void 0) { onChange = function () { }; }
+          if (onReady === void 0) { onReady = function () { }; }
           this.expanded = false;
           this.closeEventListener = this.closeEventListener.bind(this);
           this.toggleExpanded = this.toggleExpanded.bind(this);
@@ -509,10 +509,11 @@
               sort: sort,
           };
           this.fontManager = new FontManager(apiKey, defaultFamily, options, onChange);
-          this.generateUI(sort);
+          this.generateUI(sort, onReady);
       }
-      FontPicker.prototype.generateUI = function (sort) {
+      FontPicker.prototype.generateUI = function (sort, onReady) {
           var _this = this;
+          if (onReady === void 0) { onReady = function () { }; }
           var selectorSuffix = this.fontManager.selectorSuffix;
           var pickerId = "font-picker" + selectorSuffix;
           this.fontPickerDiv = document.getElementById(pickerId);
@@ -543,6 +544,7 @@
               }
               _this.generateFontList(fonts);
               dropdownIcon.classList.replace("loading", "finished");
+              onReady();
           })["catch"](function (err) {
               dropdownIcon.classList.replace("loading", "error");
               console.error("Error trying to fetch the list of available fonts");
@@ -678,4 +680,3 @@
   return FontPicker;
 
 })));
-//# sourceMappingURL=FontPicker.js.map

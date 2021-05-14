@@ -5,10 +5,11 @@
 }(this, (function (fontManager) { 'use strict';
 
 	var FontPicker = (function () {
-	    function FontPicker(apiKey, defaultFamily, _a, onChange) {
+	    function FontPicker(apiKey, defaultFamily, _a, onChange, onReady) {
 	        if (defaultFamily === void 0) { defaultFamily = fontManager.FONT_FAMILY_DEFAULT; }
 	        var _b = _a.pickerId, pickerId = _b === void 0 ? fontManager.OPTIONS_DEFAULTS.pickerId : _b, _c = _a.families, families = _c === void 0 ? fontManager.OPTIONS_DEFAULTS.families : _c, _d = _a.categories, categories = _d === void 0 ? fontManager.OPTIONS_DEFAULTS.categories : _d, _e = _a.scripts, scripts = _e === void 0 ? fontManager.OPTIONS_DEFAULTS.scripts : _e, _f = _a.variants, variants = _f === void 0 ? fontManager.OPTIONS_DEFAULTS.variants : _f, _g = _a.filter, filter = _g === void 0 ? fontManager.OPTIONS_DEFAULTS.filter : _g, _h = _a.limit, limit = _h === void 0 ? fontManager.OPTIONS_DEFAULTS.limit : _h, _j = _a.sort, sort = _j === void 0 ? fontManager.OPTIONS_DEFAULTS.sort : _j;
 	        if (onChange === void 0) { onChange = function () { }; }
+	        if (onReady === void 0) { onReady = function () { }; }
 	        this.expanded = false;
 	        this.closeEventListener = this.closeEventListener.bind(this);
 	        this.toggleExpanded = this.toggleExpanded.bind(this);
@@ -23,10 +24,11 @@
 	            sort: sort,
 	        };
 	        this.fontManager = new fontManager.FontManager(apiKey, defaultFamily, options, onChange);
-	        this.generateUI(sort);
+	        this.generateUI(sort, onReady);
 	    }
-	    FontPicker.prototype.generateUI = function (sort) {
+	    FontPicker.prototype.generateUI = function (sort, onReady) {
 	        var _this = this;
+	        if (onReady === void 0) { onReady = function () { }; }
 	        var selectorSuffix = this.fontManager.selectorSuffix;
 	        var pickerId = "font-picker" + selectorSuffix;
 	        this.fontPickerDiv = document.getElementById(pickerId);
@@ -57,6 +59,7 @@
 	            }
 	            _this.generateFontList(fonts);
 	            dropdownIcon.classList.replace("loading", "finished");
+	            onReady();
 	        })["catch"](function (err) {
 	            dropdownIcon.classList.replace("loading", "error");
 	            console.error("Error trying to fetch the list of available fonts");
@@ -192,4 +195,3 @@
 	return FontPicker;
 
 })));
-//# sourceMappingURL=FontPicker.js.map
