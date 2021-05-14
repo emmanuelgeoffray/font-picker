@@ -49,6 +49,8 @@ export default class FontPicker {
 		}: Partial<Options>,
 		// eslint-disable-next-line @typescript-eslint/no-empty-function
 		onChange: (font: Font) => void = (): void => {},
+		// eslint-disable-next-line @typescript-eslint/no-empty-function
+		onReady: () => void = (): void => {},
 	) {
 		// Function bindings
 		this.closeEventListener = this.closeEventListener.bind(this);
@@ -66,13 +68,16 @@ export default class FontPicker {
 			sort,
 		};
 		this.fontManager = new FontManager(apiKey, defaultFamily, options, onChange);
-		this.generateUI(sort);
+		this.generateUI(sort, onReady);
 	}
 
 	/**
 	 * Download list of available fonts and generate the font picker HTML
 	 */
-	private generateUI(sort: SortOption): void {
+	private generateUI(sort: SortOption,
+     // eslint-disable-next-line @typescript-eslint/no-empty-function
+     onReady: () => void = (): void => {},
+  ): void {
 		const { selectorSuffix } = this.fontManager;
 		const pickerId = `font-picker${selectorSuffix}`;
 
@@ -111,6 +116,7 @@ export default class FontPicker {
 				}
 				this.generateFontList(fonts);
 				dropdownIcon.classList.replace("loading", "finished");
+        onReady();
 			})
 			.catch((err: Error): void => {
 				// On error: Log error message
