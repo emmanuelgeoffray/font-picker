@@ -13,7 +13,7 @@ export default class FontPicker {
     private closeEventListener;
     private toggleExpanded;
     getFonts(): FontList;
-    addFont(fontFamily: string, index?: number): void;
+    addFont(fontFamily: string, index?: number, url?: string): void;
     removeFont(fontFamily: string): void;
     getActiveFont(): Font;
     setActiveFont(fontFamily: string): void;

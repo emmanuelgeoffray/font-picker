@@ -95,7 +95,7 @@ var FontPicker = (function () {
         fontButton.onclick = onActivate;
         fontButton.onkeypress = onActivate;
         li.appendChild(fontButton);
-        if (listIndex) {
+        if (listIndex !== undefined && listIndex !== null) {
             this.ul.insertBefore(li, this.ul.children[listIndex]);
         }
         else {
@@ -133,11 +133,12 @@ var FontPicker = (function () {
     FontPicker.prototype.getFonts = function () {
         return this.fontManager.getFonts();
     };
-    FontPicker.prototype.addFont = function (fontFamily, index) {
+    FontPicker.prototype.addFont = function (fontFamily, index, url) {
+        if (url === void 0) { url = ''; }
         if (Array.from(this.fontManager.getFonts().keys()).includes(fontFamily)) {
             throw Error("Did not add font to font picker: Font family \"" + fontFamily + "\" is already in the list");
         }
-        this.fontManager.addFont(fontFamily, true);
+        this.fontManager.addFont(fontFamily, true, url);
         var font = this.fontManager.getFonts().get(fontFamily);
         if (font) {
             this.addFontLi(font, index);
@@ -185,3 +186,4 @@ var FontPicker = (function () {
 }());
 
 export default FontPicker;
+//# sourceMappingURL=FontPicker.es.js.map

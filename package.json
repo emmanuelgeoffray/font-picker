@@ -40,7 +40,7 @@
 		"release": "np"
 	},
 	"dependencies": {
-		"@samuelmeuli/font-manager": "^1.4.0"
+    "font-manager": "emmanuelgeoffray/font-manager#build"
 	},
 	"devDependencies": {
 		"@samuelmeuli/eslint-config": "^6.0.0",

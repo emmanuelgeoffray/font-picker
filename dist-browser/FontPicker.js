@@ -5,18 +5,18 @@
 }(this, (function () { 'use strict';
 
   /*! *****************************************************************************
-  Copyright (c) Microsoft Corporation. All rights reserved.
-  Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-  this file except in compliance with the License. You may obtain a copy of the
-  License at http://www.apache.org/licenses/LICENSE-2.0
+  Copyright (c) Microsoft Corporation.
 
-  THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-  KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-  WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-  MERCHANTABLITY OR NON-INFRINGEMENT.
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted.
 
-  See the Apache Version 2.0 License for specific language governing permissions
-  and limitations under the License.
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+  REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+  AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+  INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+  LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+  OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+  PERFORMANCE OF THIS SOFTWARE.
   ***************************************************************************** */
 
   var __assign = function() {
@@ -43,10 +43,11 @@
   }
 
   function __awaiter(thisArg, _arguments, P, generator) {
+      function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
       return new (P || (P = Promise))(function (resolve, reject) {
           function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
           function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-          function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+          function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
           step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
   }
@@ -106,8 +107,8 @@
     }
   }
 
-  var css = "@charset \"UTF-8\";\ndiv[id^=font-picker] {\n  position: relative;\n  display: inline-block;\n  width: 200px;\n  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);\n}\ndiv[id^=font-picker] * {\n  box-sizing: border-box;\n}\ndiv[id^=font-picker] p {\n  margin: 0;\n  padding: 0;\n}\ndiv[id^=font-picker] button {\n  color: inherit;\n  font-size: inherit;\n  background: none;\n  border: 0;\n  outline: none;\n  cursor: pointer;\n}\ndiv[id^=font-picker] .dropdown-button {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  height: 35px;\n  padding: 0 10px;\n  background: #cbcbcb;\n}\ndiv[id^=font-picker] .dropdown-button:hover, div[id^=font-picker] .dropdown-button:focus {\n  background: #bebebe;\n}\ndiv[id^=font-picker] .dropdown-button .dropdown-font-name {\n  overflow: hidden;\n  white-space: nowrap;\n}\ndiv[id^=font-picker] .dropdown-icon {\n  margin-left: 10px;\n}\n@-webkit-keyframes spinner {\n  to {\n    transform: rotate(360deg);\n  }\n}\n@keyframes spinner {\n  to {\n    transform: rotate(360deg);\n  }\n}\ndiv[id^=font-picker] .dropdown-icon.loading::before {\n  display: block;\n  width: 10px;\n  height: 10px;\n  border: 2px solid #b2b2b2;\n  border-top-color: #000000;\n  border-radius: 50%;\n  -webkit-animation: spinner 0.6s linear infinite;\n          animation: spinner 0.6s linear infinite;\n  content: \"\";\n}\ndiv[id^=font-picker] .dropdown-icon.finished::before {\n  display: block;\n  width: 0;\n  height: 0;\n  margin: 0 2px;\n  border-top: 6px solid #000000;\n  border-right: 5px solid transparent;\n  border-left: 5px solid transparent;\n  transition: transform 0.3s;\n  content: \"\";\n}\ndiv[id^=font-picker] .dropdown-icon.error::before {\n  content: \"⚠\";\n}\ndiv[id^=font-picker].expanded .dropdown-icon.finished::before {\n  transform: rotate(-180deg);\n}\ndiv[id^=font-picker].expanded ul {\n  max-height: 200px;\n}\ndiv[id^=font-picker] ul {\n  position: absolute;\n  z-index: 1;\n  width: 100%;\n  max-height: 0;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n  overflow-y: auto;\n  background: #eaeaea;\n  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  -webkit-overflow-scrolling: touch;\n}\ndiv[id^=font-picker] ul li {\n  height: 35px;\n  list-style: none;\n}\ndiv[id^=font-picker] ul li button {\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  padding: 0 10px;\n  white-space: nowrap;\n}\ndiv[id^=font-picker] ul li button:hover, div[id^=font-picker] ul li button:focus {\n  background: #dddddd;\n}\ndiv[id^=font-picker] ul li button.active-font {\n  background: #d1d1d1;\n}";
-  styleInject(css);
+  var css_248z = "@charset \"UTF-8\";\ndiv[id^=font-picker] {\n  position: relative;\n  display: inline-block;\n  width: 200px;\n  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);\n}\ndiv[id^=font-picker] * {\n  box-sizing: border-box;\n}\ndiv[id^=font-picker] p {\n  margin: 0;\n  padding: 0;\n}\ndiv[id^=font-picker] button {\n  color: inherit;\n  font-size: inherit;\n  background: none;\n  border: 0;\n  outline: none;\n  cursor: pointer;\n}\ndiv[id^=font-picker] .dropdown-button {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  height: 35px;\n  padding: 0 10px;\n  background: #cbcbcb;\n}\ndiv[id^=font-picker] .dropdown-button:hover, div[id^=font-picker] .dropdown-button:focus {\n  background: #bebebe;\n}\ndiv[id^=font-picker] .dropdown-button .dropdown-font-name {\n  overflow: hidden;\n  white-space: nowrap;\n}\ndiv[id^=font-picker] .dropdown-icon {\n  margin-left: 10px;\n}\n@-webkit-keyframes spinner {\n  to {\n    transform: rotate(360deg);\n  }\n}\n@keyframes spinner {\n  to {\n    transform: rotate(360deg);\n  }\n}\ndiv[id^=font-picker] .dropdown-icon.loading::before {\n  display: block;\n  width: 10px;\n  height: 10px;\n  border: 2px solid #b2b2b2;\n  border-top-color: #000000;\n  border-radius: 50%;\n  -webkit-animation: spinner 0.6s linear infinite;\n          animation: spinner 0.6s linear infinite;\n  content: \"\";\n}\ndiv[id^=font-picker] .dropdown-icon.finished::before {\n  display: block;\n  width: 0;\n  height: 0;\n  margin: 0 2px;\n  border-top: 6px solid #000000;\n  border-right: 5px solid transparent;\n  border-left: 5px solid transparent;\n  transition: transform 0.3s;\n  content: \"\";\n}\ndiv[id^=font-picker] .dropdown-icon.error::before {\n  content: \"⚠\";\n}\ndiv[id^=font-picker].expanded .dropdown-icon.finished::before {\n  transform: rotate(-180deg);\n}\ndiv[id^=font-picker].expanded ul {\n  max-height: 200px;\n}\ndiv[id^=font-picker] ul {\n  position: absolute;\n  z-index: 1;\n  width: 100%;\n  max-height: 0;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n  overflow-y: auto;\n  background: #eaeaea;\n  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  -webkit-overflow-scrolling: touch;\n}\ndiv[id^=font-picker] ul li {\n  height: 35px;\n  list-style: none;\n}\ndiv[id^=font-picker] ul li button {\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  padding: 0 10px;\n  white-space: nowrap;\n}\ndiv[id^=font-picker] ul li button:hover, div[id^=font-picker] ul li button:focus {\n  background: #dddddd;\n}\ndiv[id^=font-picker] ul li button.active-font {\n  background: #d1d1d1;\n}";
+  styleInject(css_248z);
 
   function getFontId(fontFamily) {
       return fontFamily.replace(/\s+/g, "-").toLowerCase();
@@ -117,6 +118,7 @@
           throw Error("The `pickerId` parameter may only contain letters and digits");
       }
   }
+  //# sourceMappingURL=ids.js.map
 
   function get(url) {
       return new Promise(function (resolve, reject) {
@@ -136,6 +138,7 @@
           request.send();
       });
   }
+  //# sourceMappingURL=request.js.map
 
   var LIST_BASE_URL = "https://www.googleapis.com/webfonts/v1/webfonts";
   function getFontList(apiKey) {
@@ -160,6 +163,7 @@
           });
       });
   }
+  //# sourceMappingURL=fontList.js.map
 
   var previewFontsStylesheet = document.createElement("style");
   document.head.appendChild(previewFontsStylesheet);
@@ -183,6 +187,7 @@
       var activeFontStylesheet = getActiveFontStylesheet(selectorSuffix);
       activeFontStylesheet.innerHTML = style;
   }
+  //# sourceMappingURL=declarations.js.map
 
   var PREVIEW_ATTRIBUTE_NAME = "data-is-preview";
   function getStylesheetId(fontId) {
@@ -222,6 +227,7 @@
           console.error("Could not change stylesheet type: Stylesheet with ID \"" + stylesheetId + "\" not found");
       }
   }
+  //# sourceMappingURL=stylesheets.js.map
 
   function getMatches(regex, str) {
       var matches = [];
@@ -234,6 +240,7 @@
       } while (match);
       return matches;
   }
+  //# sourceMappingURL=regex.js.map
 
   var FONT_FACE_REGEX = /@font-face {([\s\S]*?)}/gm;
   var FONT_FAMILY_REGEX = /font-family: ['"](.*?)['"]/gm;
@@ -250,6 +257,7 @@
       });
       return fontStyles;
   }
+  //# sourceMappingURL=extractFontStyles.js.map
 
   var FONT_BASE_URL = "https://fonts.googleapis.com/css";
   function getStylesheet(fonts, scripts, variants, previewsOnly) {
@@ -274,30 +282,47 @@
           });
       });
   }
+  //# sourceMappingURL=fontStylesheet.js.map
 
+  function getSimpleStylesheet(font) {
+      return "\n        @font-face {\n\n        font-family: '" + font.family + "';\n        font-style: normal;\n        font-weight: 400;\n        src: url(" + font.url + ");";
+  }
   function loadFontPreviews(fonts, scripts, variants, selectorSuffix) {
       return __awaiter(this, void 0, void 0, function () {
-          var fontsArray, fontsToFetch, response, fontStyles;
+          var fontsArray, fontsGoogle, fontsToFetch, fontStyles, response;
           return __generator(this, function (_a) {
               switch (_a.label) {
                   case 0:
                       fontsArray = Array.from(fonts.values());
+                      fontsGoogle = fontsArray
+                          .filter(function (font) { return font.url === '' || font.url === undefined; });
                       fontsToFetch = fontsArray
                           .map(function (font) { return font.id; })
                           .filter(function (fontId) { return !stylesheetExists(fontId); });
                       fontsToFetch.forEach(function (fontId) { return createStylesheet(fontId, true); });
-                      return [4, getStylesheet(fontsArray, scripts, variants, true)];
+                      fontStyles = {};
+                      if (!(fontsGoogle.length > 0)) return [3, 2];
+                      return [4, getStylesheet(fontsGoogle, scripts, variants, true)];
                   case 1:
                       response = _a.sent();
                       fontStyles = extractFontStyles(response);
+                      _a.label = 2;
+                  case 2:
                       fontsArray.forEach(function (font) {
                           applyFontPreview(font, selectorSuffix);
                           if (fontsToFetch.includes(font.id)) {
-                              if (!(font.id in fontStyles)) {
-                                  console.error("Missing styles for font \"" + font.family + "\" (fontId \"" + font.id + "\") in Google Fonts response");
-                                  return;
+                              var fontStyle = '';
+                              if (font.url === '' || font.url === undefined || font.url === null) {
+                                  if (!(font.id in fontStyles)) {
+                                      console.error("Missing styles for font \"" + font.family + "\" (fontId \"" + font.id + "\") in Google Fonts response");
+                                      return;
+                                  }
+                                  fontStyle = fontStyles[font.id];
                               }
-                              fillStylesheet(font.id, fontStyles[font.id]);
+                              else {
+                                  fontStyle = getSimpleStylesheet(font);
+                              }
+                              fillStylesheet(font.id, fontStyle);
                           }
                       });
                       return [2];
@@ -313,7 +338,7 @@
                   case 0:
                       if (!stylesheetExists(font.id, false)) return [3, 1];
                       applyActiveFont(font, previousFontFamily, selectorSuffix);
-                      return [3, 3];
+                      return [3, 5];
                   case 1:
                       if (stylesheetExists(font.id, true)) {
                           setStylesheetType(font.id, false);
@@ -321,17 +346,25 @@
                       else {
                           createStylesheet(font.id, false);
                       }
+                      fontStyle = void 0;
+                      if (!(font.url === '' || font.url === undefined || font.url === null)) return [3, 3];
                       return [4, getStylesheet([font], scripts, variants, false)];
                   case 2:
                       fontStyle = _a.sent();
+                      return [3, 4];
+                  case 3:
+                      fontStyle = getSimpleStylesheet(font);
+                      _a.label = 4;
+                  case 4:
                       applyActiveFont(font, previousFontFamily, selectorSuffix);
                       fillStylesheet(font.id, fontStyle);
-                      _a.label = 3;
-                  case 3: return [2];
+                      _a.label = 5;
+                  case 5: return [2];
               }
           });
       });
   }
+  //# sourceMappingURL=loadFonts.js.map
 
   var FONT_FAMILY_DEFAULT = "Open Sans";
   var OPTIONS_DEFAULTS = {
@@ -344,6 +377,7 @@
       limit: 50,
       sort: "alphabet",
   };
+  //# sourceMappingURL=types.js.map
 
   var FontManager = (function () {
       function FontManager(apiKey, defaultFamily, _a, onChange) {
@@ -407,11 +441,13 @@
       FontManager.prototype.getFonts = function () {
           return this.fonts;
       };
-      FontManager.prototype.addFont = function (fontFamily, downloadPreview) {
+      FontManager.prototype.addFont = function (fontFamily, downloadPreview, url) {
           if (downloadPreview === void 0) { downloadPreview = true; }
+          if (url === void 0) { url = ''; }
           var font = {
               family: fontFamily,
               id: getFontId(fontFamily),
+              url: url
           };
           this.fonts.set(fontFamily, font);
           if (downloadPreview) {
@@ -452,6 +488,7 @@
       };
       return FontManager;
   }());
+  //# sourceMappingURL=index.es.js.map
 
   var FontPicker = (function () {
       function FontPicker(apiKey, defaultFamily, _a, onChange) {
@@ -548,7 +585,7 @@
           fontButton.onclick = onActivate;
           fontButton.onkeypress = onActivate;
           li.appendChild(fontButton);
-          if (listIndex) {
+          if (listIndex !== undefined && listIndex !== null) {
               this.ul.insertBefore(li, this.ul.children[listIndex]);
           }
           else {
@@ -586,11 +623,12 @@
       FontPicker.prototype.getFonts = function () {
           return this.fontManager.getFonts();
       };
-      FontPicker.prototype.addFont = function (fontFamily, index) {
+      FontPicker.prototype.addFont = function (fontFamily, index, url) {
+          if (url === void 0) { url = ''; }
           if (Array.from(this.fontManager.getFonts().keys()).includes(fontFamily)) {
               throw Error("Did not add font to font picker: Font family \"" + fontFamily + "\" is already in the list");
           }
-          this.fontManager.addFont(fontFamily, true);
+          this.fontManager.addFont(fontFamily, true, url);
           var font = this.fontManager.getFonts().get(fontFamily);
           if (font) {
               this.addFontLi(font, index);
@@ -640,3 +678,4 @@
   return FontPicker;
 
 })));
+//# sourceMappingURL=FontPicker.js.map
